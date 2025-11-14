@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кібербезпека — Гра</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <div id="main-menu" class="screen active">
+    <h1>Кібербезпека<br>для всіх</h1>
+    <button class="btn primary" onclick="goTo('choose-theme')">Почати гру</button>
+    <button class="btn secondary" onclick="goTo('instructions')">Інструкція</button>
+    <button class="btn secondary" onclick="goTo('levels')">Рівні</button>
+    <button class="btn secondary" onclick="goTo('progress')">Прогрес</button>
+  </div>
+
+  <div id="choose-theme" class="screen">
+    <h2>Оберіть тему</h2>
+    <button class="theme-btn" onclick="startTheme('Паролі')">🔒 Паролі</button>
+    <button class="theme-btn" onclick="startTheme('Соцмережі')">📱 Соцмережі</button>
+    <button class="theme-btn" onclick="startTheme('Електронна пошта')">📧 Електронна пошта</button>
+    <button class="theme-btn" onclick="startTheme('Фішинг')">🎣 Фішинг</button>
+    <button class="btn back" onclick="goTo('main-menu')">&larr; Назад</button>
+  </div>
+
+  <div id="instructions" class="screen">
+    <h2>Інструкція</h2>
+    <p>✅ Виберіть правильні відповіді. За кожну — <strong>50 балів</strong>.</p>
+    <p>💡 Підсказки: 3 рази на гру.</p>
+    <button class="btn back" onclick="goTo('main-menu')">&larr; Назад</button>
+  </div>
+
+  <div id="levels" class="screen">
+    <h2>Рівні</h2>
+    <div id="levels-list"></div>
+    <button class="btn back" onclick="goTo('main-menu')">&larr; Назад</button>
+  </div>
+
+  <div id="progress" class="screen">
+    <h2>📊 Прогрес</h2>
+    <div id="progress-bars"></div>
+    <button class="btn back" onclick="goTo('main-menu')">&larr; Назад</button>
+  </div>
+
+  <div id="game" class="screen">
+    <div class="header">
+      <div>
+        <h2 id="theme-title">Тема</h2>
+        <h3 id="level-title">Рівень 1</h3>
+      </div>
+      <div class="hints">
+        <span id="hint-count">3</span>
+        <span class="hint-icon" onclick="useHint()">💡</span>
+      </div>
+    </div>
+    <div class="task">
+      <p id="task-text">Завдання...</p>
+    </div>
+    <div id="options" class="options"></div>
+    <input id="text-input" class="input-field" placeholder="Введіть відповідь..." style="display:none;">
+    <button id="check-btn" class="btn primary" onclick="checkAnswer()">Перевірити</button>
+    <button class="btn back" onclick="goTo('choose-theme')">&larr; Назад</button>
+  </div>
+
+  <div id="result-screen" class="screen">
+    <h2 id="result-icon">✅</h2>
+    <p id="result-text">Правильно!</p>
+    <div class="result-box">
+      <p>Ви отримали:</p>
+      <h3 id="points-earned">50 балів</h3>
+    </div>
+    <div class="result-actions">
+      <button id="next-level-btn" class="btn primary">▶️ Наступний рівень</button>
+      <button class="btn secondary" onclick="goTo('main-menu')">🏠 Головне меню</button>
+    </div>
+  </div>
+<div id="game" class="screen">
+  ...
+  <div id="options" class="options"></div>
+  <input id="text-input" class="input-field" placeholder="Введіть відповідь..." style="display:none;">
+  <button id="check-btn" class="btn primary" onclick="checkAnswer()">Перевірити</button>
+  <p id="error-msg" style="color:#ef4444; text-align:center; margin-top:10px; font-weight:600;"></p>
+  <button class="btn back" onclick="goTo('choose-theme')">&larr; Назад</button>
+</div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
